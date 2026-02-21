@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipt - Car18</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      /* Desktop View (Default) */
+      .receipt-container {
+        width: 210mm; /* A4 width */
+        height: 297mm; /* A4 height */
+        background-color: #ffffff;
+        padding: 20mm;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      /* Replace the existing .header style in the general styles section */
+      .header {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text */
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        height: 60px;
+        width: 60px;
+        margin-bottom: 16px; /* Replace margin-right with margin-bottom */
+      }
+
+      .company-details h2 {
+        font-size: 22px;
+        margin: 0;
+        color: #1a1a1a;
+      }
+
+      .company-details p {
+        margin: 2px 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: #1a1a1a;
+      }
+
+      /* Table Styles */
+      .details-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+        font-size: 16px;
+        color: #444;
+      }
+
+      .details-table th,
+      .details-table td {
+        padding: 8px;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+      }
+
+      .details-table th {
+        background-color: #f5f5f5;
+        color: #1a1a1a;
+        width: 30%; /* Fixed width for labels */
+      }
+
+      .details-table td {
+        color: #1a1a1a;
+      }
+
+      /* Right-align amounts in Payment Summary */
+      .payment-details td.amount {
+        text-align: right;
+      }
+
+      .total-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 16px;
+        color: #1a1a1a;
+      }
+
+      .total-table th,
+      .total-table td {
+        padding: 8px;
+        border: 1px solid #e0e0e0; /* Ensure full border */
+        text-align: left;
+      }
+
+      .total-table th {
+        background-color: #f5f5f5; /* Match other tables */
+        width: 30%; /* Consistent with other tables */
+      }
+
+      /* Right-align Total Amount */
+      .total-table td.amount {
+        text-align: right;
+      }
+
+      .footer {
+        margin-top: 24px;
+        text-align: center;
+        font-size: 14px;
+        color: #777;
+      }
+
+      .signature-container {
+        margin-top: 24px;
+        text-align: right;
+      }
+
+      .signature-image {
+        height: 40px;
+      }
+
+      .signature-label {
+        font-size: 14px;
+        color: #444;
+        margin-top: 4px;
+      }
+
+      .invoice-number {
+        font-size: 16px;
+        color: #666;
+        margin-top: 4px;
+      }
+
+      .download-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .download-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 0.3s ease; /* Smooth transition for opacity */
+      }
+
+      /* Mobile View */
+      @media (max-width: 768px) {
+        .receipt-container {
+          position: absolute;
+          left: -9999px; /* Hide desktop view off-screen on mobile */
+        }
+
+        .mobile-receipt-container {
+          display: block; /* Show mobile view */
+          width: 100%;
+          padding: 20px;
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          border: 1px solid #e0e0e0;
+          box-sizing: border-box;
+        }
+
+        .mobile-receipt-container .header {
+          flex-direction: column;
+          align-items: center; /* Center items horizontally */
+          text-align: center; /* Center text */
+        }
+
+        .mobile-receipt-container .logo {
+          margin-bottom: 16px;
+          margin-right: 0; /* Remove right margin */
+          display: block; /* Ensure it takes its own line */
+        }
+
+        .mobile-receipt-container .company-details {
+          width: 100%; /* Ensure it takes full width */
+        }
+
+        .company-details h2 {
+          font-size: 16px;
+          margin: 0;
+          color: #1a1a1a;
+        }
+
+        .company-details p {
+          margin: 2px 0;
+          font-size: 12px;
+          color: #666;
+        }
+
+        .mobile-receipt-container .section-title {
+          font-size: 14px;
+        }
+
+        .mobile-receipt-container .details-table {
+          font-size: 12px;
+        }
+
+        .mobile-receipt-container .total-table {
+          font-size: 12px;
+        }
+
+        .mobile-receipt-container .footer {
+          font-size: 12px;
+        }
+
+        .download-button {
+          width: 100%;
+        }
+      }
+
+      /* Hide mobile view on desktop */
+      @media (min-width: 769px) {
+        .mobile-receipt-container {
+          display: none;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background-color: #ffffff;
+        }
+        .receipt-container {
+          width: 210mm !important;
+          height: 297mm !important;
+          padding: 20mm !important;
+        }
+        .download-button {
+          display: none;
+        }
+        .mobile-receipt-container {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="download-button" onclick="downloadPDF()">
+      Download PDF
+    </button>
+
+    <!-- Desktop View (Used for PDF) -->
+    <div class="receipt-container" id="receipt">
+      <div class="header">
+        <img src="logo.svg" alt="Car18 Logo" class="logo" id="logoImg" />
+        <div class="company-details">
+          <h2>Glistenride Services Private Limited</h2>
+          <p>CIN: U45200UP2025PTC217658</p>
+          <p>
+            356/340/1145, Ashok Vihar, Alamnagar, Lucknow, Uttar Pradesh, India,
+            226017
+          </p>
+          <p>Email: support@car18.in</p>
+        </div>
+      </div>
+
+      <div class="section-title">Customer Details</div>
+      <table class="details-table">
+        <tr>
+          <th>Invoice No</th>
+          <td id="invoiceNumber"></td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td id="customerPhone">+91 9876543210</td>
+        </tr>
+        <tr id="desktopAddressRow">
+          <th>Address</th>
+          <td id="customerAddress">45/A, Green Park, New Delhi, India</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Service Details</div>
+      <table class="details-table">
+        <tr>
+          <th>Service</th>
+          <td id="serviceName">Smart Wash</td>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td id="serviceDate">March 20, 2025</td>
+        </tr>
+        <tr id="desktopTimeRow">
+          <th>Time</th>
+          <td id="serviceTime">10:00 AM</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Payment Summary</div>
+      <table class="details-table payment-details">
+        <tr>
+          <th>Service Cost</th>
+          <td id="serviceCost" class="amount">₹550</td>
+        </tr>
+        <tr>
+          <th>Discount</th>
+          <td id="discount" class="amount">- ₹55</td>
+        </tr>
+      </table>
+      <table class="total-table">
+        <tr>
+          <th>Total Amount</th>
+          <td id="totalAmount" class="amount">₹495</td>
+        </tr>
+      </table>
+
+      <div class="signature-container">
+        <img
+          src="sign.png"
+          alt="Vendor Signature"
+          class="signature-image"
+          id="signatureImg"
+        />
+        <div class="signature-label">Authorized Signature</div>
+      </div>
+
+      <div class="footer">
+        Thank you for choosing Car18! We look forward to serving you again.
+      </div>
+    </div>
+
+    <!-- Mobile View (Hidden on Desktop) -->
+    <div class="mobile-receipt-container">
+      <div class="header">
+        <img src="logo.svg" alt="Car18 Logo" class="logo" />
+        <div class="company-details">
+          <h2>Glistenride Services Private Limited</h2>
+          <p>CIN: U45200UP2025PTC217658</p>
+          <p>
+            356/340/1145, Ashok Vihar, Alamnagar, Lucknow, Uttar Pradesh, India,
+            226017
+          </p>
+          <p>Email: support@car18.in</p>
+        </div>
+      </div>
+
+      <div class="section-title">Customer Details</div>
+      <table class="details-table">
+        <tr>
+          <th>Invoice No</th>
+          <td id="mobileInvoiceNumber"></td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td id="mobileCustomerPhone">+91 9876543210</td>
+        </tr>
+        <tr id="mobileAddressRow">
+          <th>Address</th>
+          <td id="mobileCustomerAddress">45/A, Green Park, New Delhi, India</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Service Details</div>
+      <table class="details-table">
+        <tr>
+          <th>Service</th>
+          <td id="mobileServiceName">Smart Wash</td>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td id="mobileServiceDate">March 20, 2025</td>
+        </tr>
+        <tr id="mobileTimeRow">
+          <th>Time</th>
+          <td id="mobileServiceTime">10:00 AM</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Payment Summary</div>
+      <table class="details-table payment-details">
+        <tr>
+          <th>Service Cost</th>
+          <td id="mobileServiceCost" class="amount">₹550</td>
+        </tr>
+        <tr>
+          <th>Discount</th>
+          <td id="mobileDiscount" class="amount">- ₹55</td>
+        </tr>
+      </table>
+      <table class="total-table">
+        <tr>
+          <th>Total Amount</th>
+          <td id="mobileTotalAmount" class="amount">₹495</td>
+        </tr>
+      </table>
+
+      <div class="signature-container">
+        <img src="sign.png" alt="Vendor Signature" class="signature-image" />
+        <div class="signature-label">Authorized Signature</div>
+      </div>
+
+      <div class="footer">
+        Thank you for choosing Car18! We look forward to serving you again.
+      </div>
+    </div>
+
+    <script>
+      // Generate random invoice number
+      function generateInvoiceNumber() {
+        const invoiceNumber =
+          "INV-" + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("invoiceNumber").innerText = `${invoiceNumber}`;
+        document.getElementById(
+          "mobileInvoiceNumber"
+        ).innerText = `${invoiceNumber}`;
+      }
+
+      // Parse URL query params and hide rows if address or time is false
+      function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        const invoiceNumber =
+          params.get("invoiceNumber") || generateInvoiceNumber();
+        const phone = params.get("phone") || "9876543210";
+        const address =
+          params.get("address") || "45/A, Green Park, New Delhi, India";
+        const service = params.get("service") || "Smart Wash";
+        const date = params.get("date") || "March 20, 2025";
+        const time = params.get("time") || "10:00 AM";
+        const cost = params.get("cost") || "550";
+        const discount = params.get("discount") || "55";
+        const total = params.get("total") || "495";
+
+        // Update desktop view
+        document.getElementById("invoiceNumber").innerText = invoiceNumber;
+        document.getElementById("customerPhone").innerText = phone;
+        document.getElementById("customerAddress").innerText = address;
+        document.getElementById("serviceName").innerText = service;
+        document.getElementById("serviceDate").innerText = date;
+        document.getElementById("serviceTime").innerText = time;
+        document.getElementById("serviceCost").innerText = `₹${cost}`;
+        document.getElementById("discount").innerText = `- ₹${discount}`;
+        document.getElementById("totalAmount").innerText = `₹${total}`;
+
+        // Update mobile view
+        document.getElementById(
+          "mobileInvoiceNumber"
+        ).innerText = `${invoiceNumber}`;
+        document.getElementById("mobileCustomerPhone").innerText = phone;
+        document.getElementById("mobileCustomerAddress").innerText = address;
+        document.getElementById("mobileServiceName").innerText = service;
+        document.getElementById("mobileServiceDate").innerText = date;
+        document.getElementById("mobileServiceTime").innerText = time;
+        document.getElementById("mobileServiceCost").innerText = `₹${cost}`;
+        document.getElementById("mobileDiscount").innerText = `- ₹${discount}`;
+        document.getElementById("mobileTotalAmount").innerText = `₹${total}`;
+
+        // Hide address rows if address is "false"
+        if (address.toLowerCase() === "false") {
+          document.getElementById("desktopAddressRow").style.display = "none";
+          document.getElementById("mobileAddressRow").style.display = "none";
+        }
+
+        // Hide time rows if time is "false"
+        if (time.toLowerCase() === "false") {
+          document.getElementById("desktopTimeRow").style.display = "none";
+          document.getElementById("mobileTimeRow").style.display = "none";
+        }
+      }
+
+      // Function to wait for images to load
+      function waitForImagesToLoad() {
+        const images = document.querySelectorAll("img");
+        const promises = Array.from(images).map((img) => {
+          if (img.complete) {
+            return Promise.resolve();
+          }
+          return new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve; // Resolve even if image fails to load
+          });
+        });
+        return Promise.all(promises);
+      }
+
+      // Get current timestamp for filename
+      function getTimestamp() {
+        const now = new Date();
+        return `${now.getFullYear()}${(now.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")}${now.getDate().toString().padStart(2, "0")}_${now
+          .getHours()
+          .toString()
+          .padStart(2, "0")}${now.getMinutes().toString().padStart(2, "0")}${now
+          .getSeconds()
+          .toString()
+          .padStart(2, "0")}`;
+      }
+
+      // Generate PDF and download with button state management
+      async function downloadPDF() {
+        const button = document.querySelector(".download-button");
+
+        // Disable button and change text
+        button.disabled = true;
+        button.style.opacity = "0.6"; // Visual feedback
+        button.style.cursor = "not-allowed";
+        button.innerText = "Generating PDF...";
+
+        try {
+          await waitForImagesToLoad(); // Ensure images are loaded
+
+          await new Promise((resolve) => setTimeout(resolve, 100)); // 100ms delay for rendering
+
+          const { jsPDF } = window.jspdf;
+          const pdf = new jsPDF({
+            orientation: "p",
+            unit: "mm",
+            format: "a4",
+            compress: true,
+          });
+
+          const receiptElement = document.getElementById("receipt");
+
+          const canvas = await html2canvas(receiptElement, {
+            scale: 1.5,
+            useCORS: true,
+            logging: true,
+          });
+
+          const imgData = canvas.toDataURL("image/png");
+          const imgWidth = 210; // A4 width in mm
+          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+          pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+          const timestamp = getTimestamp();
+          pdf.save(`Car18_Receipt_${timestamp}.pdf`);
+        } catch (error) {
+          console.error("Error generating PDF:", error);
+          alert(
+            "An error occurred while generating the PDF. Please try again."
+          );
+        } finally {
+          // Re-enable button regardless of success or failure
+          button.disabled = false;
+          button.style.opacity = "1";
+          button.style.cursor = "pointer";
+          button.innerText = "Download PDF";
+        }
+      }
+
+      window.onload = () => {
+        getQueryParams();
+      };
+    </script>
+  </body>
+</html>

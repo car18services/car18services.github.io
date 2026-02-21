@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google Ads Tracking Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-16908208413"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-16908208413");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Car18 Blogs | Expert Car Care Tips and Advice</title>
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="Get expert car care tips, maintenance advice, and the latest trends in car cleaning from Car18 professionals."
+    />
+    <meta
+      name="keywords"
+      content="car care tips, car maintenance, car cleaning advice, car detailing blog, car wash tips"
+    />
+    <meta name="author" content="Car18® – Doorstep Car Wash in Lucknow" />
+    <meta property="og:site_name" content="Car18" />
+    <meta name="apple-mobile-web-app-title" content="Car18" />
+    <meta name="application-name" content="Car18" />
+    <link rel="icon" type="image/x-icon" href="./../favicon.ico" />
+
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <style>
+      :root {
+        --primary: #0066ff;
+        --primary-dark: #0052cc;
+        --secondary: #ff6b00;
+        --dark: #1a1a1a;
+        --light: #f8f9fa;
+        --gray: #6c757d;
+        --light-gray: #e9ecef;
+        --success: #28a745;
+        --danger: #dc3545;
+        --warning: #ffc107;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #ffffff;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-width: 100vw;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+      }
+
+      .btn-secondary {
+        background-color: var(--secondary);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+      }
+
+      .btn-secondary:hover {
+        background-color: #e05d00;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        text-align: center;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        color: var(--gray);
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 50px;
+        text-align: center;
+      }
+
+      /* Header Styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo-text {
+        font-family: "helvetica", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--dark);
+      }
+
+      .logo-text span:first-child {
+        color: var(--primary);
+      }
+
+      .logo-text span:last-child {
+        color: var(--dark);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* Phone Number Styles */
+      .phone-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--dark);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .phone-nav:hover {
+        color: var(--primary);
+      }
+
+      .phone-nav i {
+        font-size: 1.2rem;
+      }
+
+      .phone-nav span {
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      /* Blog Hero Section */
+      .blog-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://i.ibb.co/gZ6tJxFM/cover-photo.webp") no-repeat center
+            center;
+        background-size: cover;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px;
+      }
+
+      .blog-hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .blog-hero-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .blog-hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      /* Blog Listing Section */
+      .blog-listing {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .blog-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .blog-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .blog-card:hover .blog-image img {
+        transform: scale(1.1);
+      }
+
+      .blog-content {
+        padding: 25px;
+      }
+
+      .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: var(--gray);
+      }
+
+      .blog-date,
+      .blog-views {
+        display: flex;
+        align-items: center;
+      }
+
+      .blog-meta i {
+        margin-right: 5px;
+        color: var(--primary);
+      }
+
+      .blog-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      .blog-excerpt {
+        color: var(--gray);
+        margin-bottom: 20px;
+      }
+
+      .read-more {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: color 0.3s ease;
+      }
+
+      .read-more:hover {
+        color: var(--primary-dark);
+      }
+
+      .read-more i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+
+      .pagination a {
+        color: var(--dark);
+        padding: 8px 16px;
+        text-decoration: none;
+        border: 1px solid var(--light-gray);
+        margin: 0 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .pagination a.active,
+      .pagination a:hover {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .footer-logo {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .footer-logo span:first-child {
+        color: var(--light);
+      }
+
+      .footer-logo span:last-child {
+        color: var(--light);
+      }
+
+      .footer-about p {
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-links h3:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .blog-hero-title {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 15px 15px;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo {
+          margin-left: 10px;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+          margin-right: 10px;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100vw;
+          width: 100vw;
+          height: calc(100vh - 80px);
+          background: white;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: left 0.3s ease;
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .nav-links li {
+          margin: 15px 0;
+        }
+
+        .nav-links a {
+          color: var(--dark);
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+
+        .nav-links a:hover {
+          color: var(--primary);
+          opacity: 1;
+        }
+
+        .nav-links a:after {
+          background: var(--primary);
+        }
+
+        .blog-hero {
+          height: 300px;
+          margin-top: 70px;
+        }
+
+        .blog-hero-title {
+          font-size: 2rem;
+        }
+
+        .blog-hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .blog-hero {
+          height: 250px;
+        }
+
+        .blog-hero-title {
+          font-size: 1.8rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .container {
+          padding: 0 15px;
+        }
+
+        .header-container {
+          padding: 10px 10px;
+        }
+
+        .logo {
+          margin-left: 5px;
+        }
+
+        .mobile-menu-btn {
+          margin-right: 5px;
+        }
+
+        .logo-text {
+          font-size: 1.5rem;
+        }
+
+        .phone-nav {
+          padding: 5px 9px;
+          border-radius: 20px;
+          border: 1px solid var(--dark);
+          color: var(--dark);
+        }
+
+        .phone-nav:hover {
+          border-color: var(--primary);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a
+          href="../index.html"
+          class="logo"
+          aria-label="Car18 - Professional Car Wash Services"
+        >
+          <span class="logo-text"
+            ><span aria-hidden="true">Car</span
+            ><span aria-hidden="true">18</span></span
+          >
+        </a>
+
+        <div class="header-right">
+          <a href="tel:8005003533" class="phone-nav">
+            <i class="fas fa-phone-alt fa-rotate-90"></i>
+            <span>800 500 3533</span>
+          </a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#brands">Brands</a></li>
+          <li><a href="../index.html#app">App</a></li>
+          <li><a href="../index.html#testimonials">Reviews</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="../partner.html">Partner</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero" id="blogs">
+      <div class="container blog-hero-content">
+        <h1 class="blog-hero-title">Car Care Blogs</h1>
+        <p class="blog-hero-subtitle">
+          Expert tips, maintenance advice, and the latest trends in car cleaning
+          from Car18 professionals.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Listing Section -->
+    <section class="blog-listing">
+      <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-subtitle">
+          Discover valuable insights to keep your car in top condition.
+        </p>
+
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img2"
+                alt="5 Essential Car Wash Tips"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> June 15, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,245 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                5 Essential Car Wash Tips for Maintaining Your Vehicle's Shine
+              </h3>
+              <p class="blog-excerpt">
+                Learn the professional techniques to wash your car without
+                damaging the paint and keep it looking showroom fresh for
+                longer.
+              </p>
+              <a
+                href="./5-essential-car-wash-tips-for-maintaining-your-vehicles-shine.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 2 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img7?updatedAt=1747746218818"
+                alt="Interior Cleaning Guide"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> May 28, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 982 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                The Ultimate Guide to Car Interior Cleaning and Maintenance
+              </h3>
+              <p class="blog-excerpt">
+                Discover how to properly clean and protect your car's interior
+                surfaces, from leather seats to dashboard plastics.
+              </p>
+              <a
+                href="./the-ultimate-guide-to-car-interior-cleaning-and-maintenance.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 3 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img8?updatedAt=1747808645839"
+                alt="Seasonal Car Care"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> May 10, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,567 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Seasonal Car Care: Preparing Your Vehicle for Summer Heat
+              </h3>
+              <p class="blog-excerpt">
+                Essential tips to protect your car from summer's intense heat,
+                including cooling system checks and UV protection.
+              </p>
+              <a
+                href="./seasonal-car-care-preparing-your-vehicle-for-summer-heat.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 4 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img9?updatedAt=1747746218818"
+                alt="Waterless Car Wash"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> April 22, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 876 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Waterless Car Wash: The Eco-Friendly Solution for Urban Car
+                Owners
+              </h3>
+              <p class="blog-excerpt">
+                Explore the benefits of waterless car washing and how it can
+                save time, water, and keep your car clean in water-scarce areas.
+              </p>
+              <a
+                href="./waterless-car-wash-the-eco-friendly-solution-for-urban-car-owners.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 5 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img18?updatedAt=1747746218818"
+                alt="Paint Protection"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> April 5, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,203 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Paint Protection 101: Wax vs. Sealant vs. Ceramic Coating
+              </h3>
+              <p class="blog-excerpt">
+                Understand the differences between various paint protection
+                methods and choose the right one for your vehicle.
+              </p>
+              <a
+                href="./paint-protection-101-wax-vs-sealant-vs-ceramic-coating.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 6 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img11?updatedAt=1747746218818"
+                alt="Car Detailing Mistakes"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                7 Common Car Detailing Mistakes That Could Damage Your Vehicle
+              </h3>
+              <p class="blog-excerpt">
+                Avoid these common detailing mistakes that many car owners make,
+                potentially causing long-term damage to their vehicles.
+              </p>
+              <a
+                href="./7-common-car-detailing-mistakes-that-could-damage-your-vehicle.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 7 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img10?updatedAt=1747809725380"
+                alt="Graphene vs Ceramic vs Wax Coating"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Graphene vs Ceramic vs Wax Coating: Ultimate Protection Guide
+              </h3>
+              <p class="blog-excerpt">
+                Learn about the differences between graphene, ceramic coating,
+                and wax coating, and choose the right one for your vehicle.
+              </p>
+              <a
+                href="./graphene-vs-ceramic-vs-wax-coating-ultimate-protection-guide.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 8 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img19?updatedAt=1747809725380"
+                alt="Top 10 Monsoon Car Maintenance Tips for Indian Roads"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Top 10 Monsoon Car Maintenance Tips for Indian Roads
+              </h3>
+              <p class="blog-excerpt">
+                Learn how to properly maintain your car during the monsoon
+                season, including tips for cleaning, protecting, and repairing
+                your vehicle.
+              </p>
+              <a
+                href="./top-10-monsoon-car-maintenance-tips-for-indian-roads.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 9 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img20?updatedAt=1747809725380"
+                alt="7 Car Care Myths That Might Be Costing You Money"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                7 Car Care Myths That Might Be Costing You Money
+              </h3>
+              <p class="blog-excerpt">
+                Debunk common car care myths and learn the truth about what
+                really matters for your vehicle's health.
+              </p>
+              <a
+                href="./7-car-care-myths-that-might-be-costing-you-money.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 10 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img21?updatedAt=1748682460467"
+                alt="DIY car scratch repair"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">DIY car scratch repair</h3>
+              <p class="blog-excerpt">
+                Learn how to fix different types of car paint scratches with
+                these professional DIY methods. Save money with these easy
+                at-home repair techniques.
+              </p>
+              <a
+                href="./diy-guide-how-to-fix-car-paint-scratches-at-home.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 11 -->
+          <div class="blog-card">
+            <div class="blog-image">
+              <img
+                src="https://ik.imagekit.io/u9wdnskik/img22?updatedAt=1748893364460"
+                alt="Tata Punch car care and maintenance"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span class="blog-date"
+                  ><i class="far fa-calendar-alt"></i> March 18, 2025</span
+                >
+                <span class="blog-views"
+                  ><i class="far fa-eye"></i> 1,098 views</span
+                >
+              </div>
+              <h3 class="blog-title">
+                Tata Punch Car Care: Complete Maintenance Guide
+              </h3>
+              <p class="blog-excerpt">
+                Complete guide to maintaining your Tata Punch - covering
+                cleaning, protection, interior care and maintenance tips to keep
+                your Punch looking new.
+              </p>
+              <a
+                href="./tata-punch-car-care-complete-maintenance-guide.html"
+                class="read-more"
+              >
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <!-- <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">&raquo;</a>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-about">
+            <a href="../index.html" class="footer-logo"
+              ><span>Car</span><span>18</span></a
+            >
+            <p>
+              Professional doorstep car wash services in Lucknow. We bring the
+              shine to your location with premium car care solutions.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/profile.php?id=61575191421458"
+                class="social-link"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/car18_official/"
+                class="social-link"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://x.com/car18_official"
+                class="social-link"
+                target="_blank"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@car18_official"
+                class="social-link"
+                target="_blank"
+                aria-label="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="https://wa.me/918005003533"
+                class="social-link"
+                target="_blank"
+                aria-label="WhatsApp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#brands">Brands</a></li>
+              <li><a href="index.html#app">App</a></li>
+              <li><a href="index.html#testimonials">Reviews</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="#blogs">Blogs</a></li>
+              <li><a href="index.html#partner">Partner</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="index.html#services">Regular Wash</a></li>
+              <li><a href="index.html#services">Deep Clean</a></li>
+              <li><a href="index.html#services">Power Wash</a></li>
+              <li><a href="index.html#services">Interior Detailing</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#partner">Careers</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Car18. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      const navItems = document.querySelectorAll(".nav-links a");
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Track blog views (example implementation)
+      document.addEventListener("DOMContentLoaded", function () {
+        // This would be replaced with actual tracking code
+        console.log("Blog page loaded - tracking views would happen here");
+
+        // Example: Increment view count when page loads
+        // In a real implementation, you would send this to your analytics or database
+        const blogCards = document.querySelectorAll(".blog-card");
+        blogCards.forEach((card) => {
+          card.addEventListener("click", function (e) {
+            if (
+              e.target.tagName === "A" &&
+              e.target.classList.contains("read-more")
+            ) {
+              const blogTitle = this.querySelector(".blog-title").textContent;
+              console.log(`Tracking click on: ${blogTitle}`);
+              // Here you would send this data to your analytics platform
+            }
+          });
+        });
+      });
+
+      // Performance optimizations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Lazy load non-critical elements
+        const lazyElements = document.querySelectorAll("[loading=lazy]");
+
+        const lazyLoad = (target) => {
+          const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                  img.src = img.dataset.src;
+                }
+                observer.unobserve(img);
+              }
+            });
+          });
+
+          io.observe(target);
+        };
+
+        lazyElements.forEach(lazyLoad);
+      });
+    </script>
+  </body>
+</html>

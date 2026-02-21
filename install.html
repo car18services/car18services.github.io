@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install Car18 App - PWA Installation Guide</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0066ff">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #0066ff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .platform {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #0066ff;
+        }
+        
+        .platform h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .steps {
+            list-style: none;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #0066ff;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .benefits {
+            background: linear-gradient(135deg, #0066ff, #00b4d8);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .benefits h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: #0066ff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #0052cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Install Car18 App</h1>
+        
+        <div class="platform">
+            <h2>🤖 Android (Chrome)</h2>
+            <ol class="steps">
+                <li>Open Chrome and visit car18.in</li>
+                <li>Tap the three dots menu (⋮) in the top right</li>
+                <li>Select "Add to Home screen" or "Install Car18 Lite"</li>
+                <li>Tap "Add" or "Install" to confirm</li>
+                <li>The Car18 Lite app will appear on your home screen</li>
+            </ol>
+        </div>
+        
+        <div class="platform">
+            <h2>🍎 iPhone/iPad (Safari)</h2>
+            <ol class="steps">
+                <li>Open Safari and visit car18.in</li>
+                <li>Tap the Share button (⎙) at the bottom</li>
+                <li>Scroll down and tap "Add to Home Screen"</li>
+                <li>Edit the name if desired, then tap "Add"</li>
+                <li>The Car18 app will appear on your home screen</li>
+            </ol>
+        </div>
+        
+        <div class="platform">
+            <h2>💻 Desktop (Chrome, Edge, Firefox)</h2>
+            <ol class="steps">
+                <li>Visit car18.in in your browser</li>
+                <li>Look for the install icon (⊕) in the address bar</li>
+                <li>Click "Install" when prompted, or click the install icon</li>
+                <li>The app will open in its own window</li>
+                <li>Access it from your desktop or start menu</li>
+            </ol>
+        </div>
+        
+        <div class="benefits">
+            <h3>🚀 Benefits of Installing the App</h3>
+            <ul>
+                <li>Faster loading and better performance</li>
+                <li>Works offline - view services even without internet</li>
+                <li>Push notifications for booking updates</li>
+                <li>Full-screen experience without browser bars</li>
+                <li>Quick access from your home screen</li>
+                <li>Automatic updates with latest features</li>
+                <li>Less data usage with smart caching</li>
+            </ul>
+        </div>
+        
+        <a href="/" class="back-btn">← Back to Car18</a>
+    </div>
+</body>
+</html>

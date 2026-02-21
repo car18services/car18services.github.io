@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Account - Car18</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 20px;
+        padding: 20px;
+        color: #333;
+      }
+      h1 {
+        font-size: 24px;
+        color: #1a1a1a;
+        border-bottom: 2px solid #1a1a1a;
+        padding-bottom: 10px;
+      }
+      .container {
+        max-width: 400px;
+        margin: 20px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+      button {
+        width: 100%;
+        background-color: #e74c3c;
+        color: #ffffff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      button:hover:enabled {
+        background-color: #c0392b;
+      }
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .checkbox-container input {
+        margin-right: 8px;
+      }
+      .error-message {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .success-message {
+        color: #27ae60;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Delete Your Car18 Account</h1>
+
+      <!-- Phone Number Input -->
+      <div id="phone-section">
+        <label for="phone">Enter Your Phone Number:</label>
+        <input
+          type="text"
+          id="phone"
+          placeholder="Enter phone number"
+          maxlength="10"
+        />
+        <button onclick="sendOTP()">Send OTP</button>
+        <p class="error-message" id="phone-error"></p>
+      </div>
+
+      <!-- OTP Input -->
+      <div id="otp-section" style="display: none">
+        <label for="otp">Enter OTP:</label>
+        <input type="number" id="otp" placeholder="Enter OTP" />
+        <button onclick="verifyOTP()">Verify OTP</button>
+        <p class="error-message" id="otp-error"></p>
+        <p class="success-message" id="otp-success"></p>
+      </div>
+
+      <!-- Account Deletion -->
+      <div id="delete-section" style="display: none">
+        <div class="checkbox-container">
+          <input type="checkbox" id="confirm-delete" />
+          <label for="confirm-delete"
+            >I understand that my account and data will be permanently
+            deleted.</label
+          >
+        </div>
+        <button onclick="deleteAccount()" id="delete-btn" disabled>
+          Delete Account
+        </button>
+        <p class="error-message" id="delete-error"></p>
+        <p class="success-message" id="delete-success"></p>
+      </div>
+    </div>
+
+    <script>
+      let authToken = null;
+
+      // Enable delete button only if checkbox is checked
+      document
+        .getElementById("confirm-delete")
+        .addEventListener("change", function () {
+          document.getElementById("delete-btn").disabled = !this.checked;
+        });
+
+      // ✅ Function to send OTP using updated endpoint
+      async function sendOTP() {
+        const phone = document.getElementById("phone").value.trim();
+        if (!phone || phone.length !== 10) {
+          document.getElementById("phone-error").innerText =
+            "Please enter a valid 10-digit phone number.";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://sendotp-gkxyfzqeca-el.a.run.app`, // ✅ Updated Endpoint
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ mobile: phone }),
+            }
+          );
+
+          const data = await response.json();
+
+          if (data.success) {
+            alert(`OTP sent to ${phone}`);
+            document.getElementById("otp-section").style.display = "block";
+            document.getElementById("phone-error").innerText = "";
+          } else {
+            throw new Error(data.message);
+          }
+        } catch (error) {
+          document.getElementById("phone-error").innerText =
+            error.message || "Failed to send OTP.";
+        }
+      }
+
+      // ✅ Function to verify OTP using updated endpoint
+      async function verifyOTP() {
+        const phone = document.getElementById("phone").value.trim();
+        const otp = document.getElementById("otp").value.trim();
+
+        if (!otp || otp.length !== 4) {
+          document.getElementById("otp-error").innerText =
+            "Please enter a valid 6-digit OTP.";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://handleotplogin-gkxyfzqeca-el.a.run.app`, // ✅ Updated Endpoint
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ mobile: phone, otp: otp }),
+            }
+          );
+
+          const result = await response.json();
+
+          if (!result?.authToken) {
+            throw new Error("Invalid OTP.");
+          }
+
+          // ✅ Store token after successful verification
+          authToken = result.authToken;
+          document.getElementById("otp-success").innerText =
+            "OTP Verified Successfully!";
+          document.getElementById("delete-section").style.display = "block";
+          document.getElementById("otp-error").innerText = "";
+        } catch (error) {
+          document.getElementById("otp-error").innerText =
+            error.message || "Failed to verify OTP.";
+        }
+      }
+
+      // ✅ Function to delete user account using token
+      async function deleteAccount() {
+        if (!authToken) {
+          document.getElementById("delete-error").innerText =
+            "Authorization failed.";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://deleteuser-gkxyfzqeca-el.a.run.app`, // ✅ Updated Endpoint
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          const result = await response.json();
+
+          if (result.success) {
+            document.getElementById("delete-success").innerText =
+              "Account deleted successfully.";
+            alert("Account deleted successfully.");
+            resetForm();
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          document.getElementById("delete-error").innerText =
+            error.message || "Failed to delete account.";
+        }
+      }
+
+      // ✅ Reset form after deletion
+      function resetForm() {
+        document.getElementById("phone").value = "";
+        document.getElementById("otp").value = "";
+        document.getElementById("confirm-delete").checked = false;
+        document.getElementById("otp-section").style.display = "none";
+        document.getElementById("delete-section").style.display = "none";
+        document.getElementById("delete-btn").disabled = true;
+        authToken = null;
+      }
+    </script>
+  </body>
+</html>
